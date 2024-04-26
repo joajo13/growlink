@@ -4,18 +4,14 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarMenuToggle,
-  DropdownTrigger,
-  Dropdown,
-  DropdownMenu,
   Avatar,
   Link,
   NavbarMenuItem,
   NavbarMenu,
 } from "@nextui-org/react";
-import { InputSearch } from "./input-search";
+import { InputSearch } from "./inputs/input-search";
 
 export const NavbarComponent = () => {
-
   return (
     <Navbar maxWidth="full" className="bg-app-white">
       <NavbarContent className="sm:hidden" justify="start">
@@ -37,15 +33,7 @@ export const NavbarComponent = () => {
       </NavbarContent>
 
       <NavbarContent as="div" justify="end">
-        <Dropdown placement="bottom-end">
-          <DropdownTrigger>
-            <Avatar className="border-3 border-app-green" />
-          </DropdownTrigger>
-          <DropdownMenu
-            aria-label="Profile Actions"
-            variant="flat"
-          ></DropdownMenu>
-        </Dropdown>
+        <Avatar className="border-3 border-app-green" />
       </NavbarContent>
 
       <NavbarMenu className="bg-app-white">

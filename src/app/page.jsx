@@ -1,5 +1,7 @@
-import { CardHome } from "./components/card-home";
-import { InputSearch } from "./components/input-search";
+
+import { CardHomeList } from "./components/cards/card-home-list";
+import { InputSearch } from "./components/inputs/input-search";
+
 
 const posts = [
   {
@@ -25,6 +27,20 @@ const posts = [
     ],
     currentWeekType: "flowering",
     isLiked: true,
+    topComments: [
+      {
+        comment: "Nice",
+        user: "user1",
+      },
+      {
+        comment: "Nice",
+        user: "user2",
+      },
+      {
+        comment: "Nice",
+        user: "user3",
+      },
+    ],
   },
   {
     title: "Title 2",
@@ -45,6 +61,20 @@ const posts = [
     ],
     currentWeekType: "vegetation",
     isLiked: false,
+    topComments: [
+      {
+        comment: "Nice",
+        user: "user1",
+      },
+      {
+        comment: "Nice",
+        user: "user2",
+      },
+      {
+        comment: "Nice",
+        user: "user3",
+      },
+    ],
   },
   {
     title: "Title 3",
@@ -65,44 +95,67 @@ const posts = [
     ],
     currentWeekType: "flowering",
     isLiked: true,
+    topComments: [
+      {
+        comment: "Nice",
+        user: "user1",
+      },
+      {
+        comment: "Nice",
+        user: "user2",
+      },
+      {
+        comment: "Nice",
+        user: "user3",
+      },
+    ],
+  },
+  {
+    title: "Title 4",
+    weeks: 4,
+    imgPath: "cover-4.jpg",
+    strainsImgPath: "strains-4.jpg",
+    userImgPath: "user-4.jpg",
+    user: "user4",
+    strains: [
+      {
+        name: "Strain 7",
+        productorPfp: "productor-2.png",
+      },
+      {
+        name: "Strain 8",
+        productorPfp: "productor-3.png",
+      },
+    ],
+    currentWeekType: "vegetation",
+    isLiked: false,
+    topComments: [
+      {
+        comment: "Nice",
+        user: "user1",
+      },
+      {
+        comment: "Nice",
+        user: "user2",
+      },
+      {
+        comment: "Nice",
+        user: "user3",
+      },
+    ],
   },
 ];
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between min-h-screen-without-navbar max-h-screen-without-navbar overflow-y-auto w-full">
+      
       <section className="w-full p-3 bg-app-white md:hidden">
         <InputSearch/>
       </section>
-      <section className="w-full">
-        {posts.map((post, index) => {
-          const {
-            title,
-            weeks,
-            imgPath,
-            strainsImgPath,
-            userImgPath,
-            user,
-            strains,
-            currentWeekType,
-            isLiked,
-          } = post;
 
-          return (
-            <CardHome 
-              key={index} 
-              currentWeekType={currentWeekType}
-              imgPath={imgPath}
-              strainsImgPath={strainsImgPath}
-              title={title}
-              userImgPath={userImgPath}
-              user={user}
-              weeks={weeks}
-              strains={strains}   
-              isLiked={isLiked} 
-            />
-          );
-        })}
+      <section className="w-full">
+        <CardHomeList posts={posts}/>
       </section>
     </main>
   );
