@@ -4,7 +4,7 @@ import { APP_NAME } from "../constants/appInfo";
 import { AuthForm } from "../components/forms/auth-forms/auth-form";
 import { Toaster } from "sonner";
 
-export const AuthPage = () => {
+const AuthPage = () => {
   return (
     <section className="w-full min-h-screen max-h-screen md:flex md:flex-row bg-app-green">
       <div className="w-full md:w-1/2 flex justify-center items-center">
