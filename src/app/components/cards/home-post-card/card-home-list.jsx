@@ -7,7 +7,7 @@ export const CardHomeList = ({posts}) => {
             const {
               title,
               weeks,
-              imgPath,
+              coverImage,
               strainsImgPath,
               userImgPath,
               user,
@@ -16,12 +16,12 @@ export const CardHomeList = ({posts}) => {
               isLiked,
               topComments
             } = post;
-            
+
             return (
               <CardHome 
                 key={index} 
                 currentWeekType={currentWeekType}
-                imgPath={imgPath}
+                coverImage={coverImage}
                 strainsImgPath={strainsImgPath}
                 title={title}
                 userImgPath={userImgPath}

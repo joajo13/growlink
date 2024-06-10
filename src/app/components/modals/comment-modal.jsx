@@ -5,8 +5,7 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Button,
-  useDisclosure,
+  Button
 } from "@nextui-org/react";
 
 const comments = [
