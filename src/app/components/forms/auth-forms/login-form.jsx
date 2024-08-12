@@ -1,11 +1,11 @@
 "use client";
 
-import { useForm, Controller } from "react-hook-form";
-import { usePostLogin } from "../../../../hooks/auth/usePostLogin";
+import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { useUserStore } from "../../../../stores/userStore";
 import { AuthFormField } from "./auth-form-field";
+import { signIn, useSession } from "next-auth/react";
+import { handleLoginError, loginFields } from "../../../../utils/authHelpers";
 
 export const LoginForm = ({ setForLogin }) => {
   const {
@@ -14,56 +14,34 @@ export const LoginForm = ({ setForLogin }) => {
     formState: { errors },
   } = useForm();
 
-  const { handleLogin } = useUserStore();
-
   const router = useRouter();
 
-  const { mutate, error, isError, isPending, isSuccess } = usePostLogin();
+  const session = useSession();
 
-  const onSubmit = (data) => {
-    mutate(data, {
-      onSuccess: (response) => {
-        const token = response.data.data.token;
-        const user = response.data.data.user;
-        handleLogin(token, user);
-        toast.success("Login successful");
+  const onSubmit = async (data) => {
+    try {
+      const response = await signIn("credentials", {
+        redirect: false,
+        usernameOrEmail: data.usernameOrEmail,
+        password: data.password,
+      });
+
+
+      if (response.error) {
+        handleLoginError(response);
+      } else {
         router.push("/home");
-      },
-      onError: (error) => {
-        toast.error("Invalid credentials");
-      },
-    });
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again.");
+    }
   };
-
-  const fields = [
-    {
-      name: "usernameOrEmail",
-      placeholder: "Username or email",
-      type: "text",
-      classNameContainer: "relative flex w-full mt-6 pb-6",
-      classNameInput: `w-full h-12 p-2 focus-within:outline rounded-lg border-2 ${
-        errors['usernameOrEmail'] ? "border-red-500" : "border-app-green"
-      }`,
-      rules: { required: "This field is required" },
-    },
-    {
-      name: "password",
-      placeholder: "Password",
-      type: "password",
-      classNameContainer: "relative flex w-full mt-2 pb-6",
-      classNameInput: `w-full h-12 p-2 focus-within:outline rounded-lg border-2 ${
-        errors['password'] ? "border-red-500" : "border-app-green"
-      }`,
-      rules: { required: "This field is required" },
-    },
-  ];
 
   return (
     <>
-      <h2 className="text-3xl font-bold text-center text-app-green">Log in</h2>
+      <h2 className="text-3xl font-bold text-center text-app-green mb-4">Log in</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col px-8">
-        
-        {fields.map((field) => (
+        {loginFields(errors).map((field) => (
           <AuthFormField
             key={field.name}
             name={field.name}

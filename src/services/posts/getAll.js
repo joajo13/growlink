@@ -1,20 +1,19 @@
 import axios from "axios";
-const baseUrl = process.env.NEXT_PUBLIC_NODE_API_BASE_URL;
+const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-export const getAll = async () => {
+export const getAll = async (token) => {
   try {
     const response = axios({
       method: 'get',
       url: `${baseUrl}/posts/getAll`,
       headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
+        'Authorization': `Bearer ${token}`
       }
     });
 
-    const data = await response;
-    
-    return data;
+    return response;
   } catch (error) {
+    console.error(error);
     throw error;
   }
 }

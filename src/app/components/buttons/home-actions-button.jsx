@@ -7,15 +7,16 @@ import {
   DropdownTrigger,
 } from "@nextui-org/dropdown";
 import { FiEdit3, FiLogIn, FiPlus } from "react-icons/fi";
-import { useUserStore } from "../../../stores/userStore";
 import { LoggedDropdownMenu } from "../dropdowns/home-button-dropdowns/logged-dropdown-menu";
 import {NotLoggedDropdownMenu} from "../dropdowns/home-button-dropdowns/not-logged-dropdown-menu";
+import { useSession } from "next-auth/react";
 
 export const HomeActionButton = () => {
-  const { userToken } = useUserStore();
+  const { data: session } = useSession();
+  const token = session?.user?.token;
 
   return (
-    <div className="absolute right-0 bottom-0 p-2">
+    <div className="fixed right-4 bottom-4 p-2 z-50">
       <Dropdown>
         <DropdownTrigger>
           <Button
@@ -28,10 +29,10 @@ export const HomeActionButton = () => {
           </Button>
         </DropdownTrigger>
 
-        {!userToken && (
+        {!token && (
           <NotLoggedDropdownMenu /> 
         )}
-        {userToken && (
+        {token && (
          <LoggedDropdownMenu />
         )}
         

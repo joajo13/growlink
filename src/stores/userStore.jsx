@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-
+  
 export const useUserStore = create(
   persist(
     (set, get) => ({
@@ -10,7 +10,7 @@ export const useUserStore = create(
         email: "",
         pfp: "",
       },
-      handleLogin: (token, userParam) =>
+      handleLogin: (token, userParam) => {
         set({
           userToken: token,
           user: {
@@ -18,7 +18,8 @@ export const useUserStore = create(
             email: userParam.email,
             pfp: userParam.pfp,
           },
-        }),
+        });
+      },
       handleLogout: () => {
         set({
           userToken: "",

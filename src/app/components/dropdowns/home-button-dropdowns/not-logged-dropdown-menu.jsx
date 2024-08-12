@@ -12,6 +12,7 @@ export const NotLoggedDropdownMenu = () => {
               className="text-app-green"
               description="Login to add a new grow monitoring"
               startContent={<FiLogIn />}
+              href="/auth"
             >
               Log in
             </DropdownItem>

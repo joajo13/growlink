@@ -10,6 +10,8 @@ module.exports = {
   ],
   theme: {
     extend: {
+      appGreen: "#519872",
+      appDarkGreen: "#3b5249",
       height: {
         "screen-without-navbar": "calc(100vh - 64px)",
       },
@@ -24,6 +26,7 @@ module.exports = {
         "app-dark-green": "#3b5249",
         "app-white": "#f4f4f9",
         "app-gray": "#f4f4f9",
+        "app-light-green": "#f4f4f9", // Asegúrate de que este color no esté duplicado o mal definido
       },
     },
   },
@@ -35,6 +38,7 @@ module.exports = {
         light: {
           "app-green": "#519872",
           "app-dark-green": "#3b5249",
+          "app-light-green": "#f4f4f9",
           "app-white": "#f4f4f9",
           primary: "#519872",
           green: "#519872",
@@ -42,6 +46,7 @@ module.exports = {
         dark: {
           "app-green": "#519872",
           "app-dark-green": "#fff",
+          "app-light-green": "#f4f4f9",
           "app-white": "#f4f4f9",
           primary: "#519872",
         },

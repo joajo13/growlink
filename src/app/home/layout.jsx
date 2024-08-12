@@ -11,11 +11,12 @@ export default function RootLayout({ children }) {
   return (
     <>
       <NavbarComponent />
-
       <div className="lg:flex">
         <Aside />
-        {children}
-        <Toaster />
+        <main className="min-h-screen-without-navbar max-h-screen-without-navbar overflow-y-auto w-full relative bg-app-white">
+          {children}
+          <Toaster />
+        </main>
       </div>
     </>
   );
