@@ -26,7 +26,17 @@ module.exports = {
         "app-dark-green": "#3b5249",
         "app-white": "#f4f4f9",
         "app-gray": "#f4f4f9",
-        "app-light-green": "#f4f4f9", // Asegúrate de que este color no esté duplicado o mal definido
+        "app-light-green": "#f4f4f9",
+        "app-red": "#bd2d2d",
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.3s ease-in-out',
       },
     },
   },

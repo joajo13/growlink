@@ -5,7 +5,7 @@ export default function SkeletonCardHomeList() {
     <ul>
       {[1, 2, 3, 4, 5].map((index) => {
         return (
-          <div className="p-2 lg:flex">
+          <div className="p-2 lg:flex" key={index}>
             <Skeleton className="rounded-xl h-[400px] w-[400px]">
               <div className="h-[400px] w-[400px]"></div>
             </Skeleton>

@@ -1,15 +1,22 @@
 import { Input } from "@nextui-org/input";
 import { GrGrow } from "react-icons/gr";
 import { GrowTypesList } from "../../../components/lists/grow-types-list";
+import { MultipleSelect } from "../../../components/selects/multiple-select";
+import { ContinueButton } from "../../../components/buttons/continue-button";
+import { FaPlus } from "react-icons/fa";
+import { strains, lights, mediumTypes } from "../../../constants/mockups";
 import { WateringTypesList } from "../../../components/lists/watering-type-list";
-import { StrainSelect } from "../../../components/selects/strain-select";
-import { LightSelect } from "../../../components/selects/light-select";
+import { AddImageCard } from "../../../components/cards/add-image-card";
 
 const NewGrow = () => {
+  //Fetch the initial options here, on the server side
+
   return (
     <div>
-      <section className="px-4 py-2 md:px-8">
-        <div className="flex items-center py-2">
+      <section className="px-4 py-3 md:px-8">
+        <AddImageCard placeholder={"Add a grow image"} />
+
+        <div className="flex items-center py-6">
           <GrGrow className="text-app-green mr-1" size={22} />
           <h1 className="text-app-green font-semibold text-xl">New grow</h1>
         </div>
@@ -28,15 +35,33 @@ const NewGrow = () => {
 
         <GrowTypesList />
 
-        <StrainSelect />
-
         <WateringTypesList />
 
-        <LightSelect title={'Vegetation lights'}/>
+        <MultipleSelect
+          initialOptions={strains}
+          title={"Strains"}
+          type={"strain"}
+        />
 
-        <LightSelect title={'Flowering lights'}/>
+        <MultipleSelect
+          initialOptions={lights}
+          title={"Vegetation lights"}
+          type={"light"}
+        />
 
-        {/* <MediumSelect /> */}
+        <MultipleSelect
+          initialOptions={lights}
+          title={"Flowering lights"}
+          type={"light"}
+        />
+
+        <MultipleSelect
+          initialOptions={mediumTypes}
+          title={"Growing medium"}
+          type={"medium"}
+        />
+
+        <ContinueButton to={"/home/grows/weeks/new"} />
       </section>
     </div>
   );

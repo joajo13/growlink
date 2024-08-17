@@ -15,6 +15,9 @@ export const Chip = ({ text, startIcon, handleClick, color, selected }) => {
     violet: `bg-violet-200/25 font-semibold text-violet-600 hover:bg-violet-200/70 ${
       selected ? "border-2 border-violet-600" : ""
     }`,
+    orange: `bg-orange-200/25 font-semibold text-orange-600 hover:bg-orange-200/70 ${
+      selected ? "border-2 border-orange-600" : ""
+    }`,
   };
 
   const colorClass = colors[color] || colors.green;

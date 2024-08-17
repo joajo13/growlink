@@ -1,4 +1,4 @@
-import { CardHomeList } from "../components/lists/card-home-list";
+// import { CardHomeList } from "../components/lists/card-home-list";
 import { HomeActionButton } from "../components/buttons/home-actions-button";
 import SkeletonCardHomeList from "../components/skeletons/skeleton-card-home-list";
 import { Suspense } from "react";
@@ -37,7 +37,7 @@ export default async function HomePage() {
     <div className="flex flex-col items-center justify-between">
       <section className="w-full">
         <Suspense fallback={<SkeletonCardHomeList />}>
-          <CardHomeList />
+          {/* <CardHomeList /> */}
         </Suspense>
       </section>
 

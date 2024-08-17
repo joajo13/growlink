@@ -28,7 +28,7 @@ export const StrainSelect = () => {
 
   return (
     <>
-      <div className="flex items-center py-2 mt-4">
+      <div className="flex items-center py-4 mt-4">
         <PiTentBold className="text-app-green mr-1" size={24} />
         <h2 className="text-app-green font-semibold text-xl">Strains</h2>
       </div>
