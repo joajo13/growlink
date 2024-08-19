@@ -2,8 +2,8 @@ import { Input } from "@nextui-org/input";
 import { GrGrow } from "react-icons/gr";
 import { GrowTypesList } from "../../../components/lists/grow-types-list";
 import { MultipleSelect } from "../../../components/selects/multiple-select";
-import { ContinueButton } from "../../../components/buttons/continue-button";
-import { FaPlus } from "react-icons/fa";
+import { FixedBottomButton } from "../../../components/buttons/continue-button";
+import { FaArrowRight, FaPlus } from "react-icons/fa";
 import { strains, lights, mediumTypes } from "../../../constants/mockups";
 import { WateringTypesList } from "../../../components/lists/watering-type-list";
 import { AddImageCard } from "../../../components/cards/add-image-card";
@@ -41,27 +41,31 @@ const NewGrow = () => {
           initialOptions={strains}
           title={"Strains"}
           type={"strain"}
+          addText={"strain"}
         />
 
         <MultipleSelect
           initialOptions={lights}
           title={"Vegetation lights"}
           type={"light"}
+          addText={"light"}
         />
 
         <MultipleSelect
           initialOptions={lights}
           title={"Flowering lights"}
           type={"light"}
+          addText={"light"}
         />
 
         <MultipleSelect
           initialOptions={mediumTypes}
           title={"Growing medium"}
           type={"medium"}
+          addText={"medium"}
         />
 
-        <ContinueButton to={"/home/grows/weeks/new"} />
+        <FixedBottomButton to={"/home/grows/weeks/new"} text={'Continue'} icon={<FaArrowRight/>}/>
       </section>
     </div>
   );

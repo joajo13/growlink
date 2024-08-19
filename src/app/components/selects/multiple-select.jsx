@@ -1,5 +1,4 @@
 "use client";
-import { PiTentBold } from "react-icons/pi";
 import React, { useState } from "react";
 import {
   Modal,
@@ -10,15 +9,15 @@ import {
   ModalFooter,
 } from "@nextui-org/modal";
 import { FaMinus, FaPlus, FaSearch, FaTrash } from "react-icons/fa";
-import { GreenButton } from "../buttons/green-button";
 import { Avatar, Button, Image, Input } from "@nextui-org/react";
 import PropTypes from "prop-types";
 import { imgPaths } from "../../constants/mockups";
 
-export const MultipleSelect = ({ title, initialOptions, type, startIcon }) => {
+export const MultipleSelect = ({ title, initialOptions, type, startIcon, addText }) => {
+  const [selectedOption, setSelectedOptions] = useState([]);
+
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [options, setOptions] = useState(initialOptions);
-  const [selectedOption, setSelectedOptions] = useState([]);
   const [counter, setCounter] = useState(1);
   const [searchValue, setSearchValue] = useState("");
   const [imgPath, setImgPath] = useState(
@@ -84,7 +83,7 @@ export const MultipleSelect = ({ title, initialOptions, type, startIcon }) => {
         >
           <FaPlus className="text-app-green" size={22} />
           <h2 className="text-lg text-app-green font-semibold">
-            Add {type.toLowerCase()}
+            Add {addText.toLowerCase()}
           </h2>
         </button>
 

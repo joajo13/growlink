@@ -1,8 +1,8 @@
 import { WeeksTypeList } from "../lists/weeks-type-list.jsx";
 
-export const WeekTypeSelect = () => {
+export const WeekTypeSelect = ({weekTypeState, setWeekType}) => {
   return (
-    <>
+    <div className="py-4">
       <div className="py-1">
         <div className="flex items-center py-2">
           <h3 className="text-app-green font-semibold text-lg">
@@ -10,7 +10,7 @@ export const WeekTypeSelect = () => {
           </h3>
         </div>
       </div>
-      <WeeksTypeList />
-    </>
+      <WeeksTypeList weekTypeState={weekTypeState} setWeekType={setWeekType} />
+    </div>
   );
 }

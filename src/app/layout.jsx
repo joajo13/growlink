@@ -1,7 +1,5 @@
 import "./globals.css";
 import { Providers } from "./components/providers/providers";
-import { NavbarComponent } from "./components/navbar/navbar";
-import { Aside } from "./components/aside/aside";
 
 export const metadata = {
   title: "CannaLink",
